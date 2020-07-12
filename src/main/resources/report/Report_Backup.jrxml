@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Report" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9f97d24c-4f2e-43f7-91b4-62ed0c2e9911">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Default Data Adapter"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<subDataset name="DatasetLegend" uuid="812abef6-f63f-4cbb-9d09-6a6a9962a182">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Default Data Adapter"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="_THIS" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="IMAGE_URL" class="java.lang.String"/>
+	<parameter name="LEGEND" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" nestedType="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="460">
+			<frame>
+				<reportElement x="-8" y="0" width="820" height="460" uuid="9eb250e8-1eed-4ffc-9bd0-ea1ad9cb0293"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<frame>
+					<reportElement x="582" y="11" width="230" height="436" uuid="f3637d4a-da25-4c53-ba71-275d09ad9d99"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="51" y="21" width="120" height="18" uuid="5f97bd3e-e27f-47cf-8bed-a582204a42e8"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle"/>
+						<text><![CDATA[JUDUL PETA]]></text>
+					</staticText>
+					<image scaleImage="FillFrame">
+						<reportElement x="16" y="51" width="199" height="109" uuid="797e1e74-3569-4986-a945-6d7a4278c890"/>
+						<imageExpression><![CDATA[$P{IMAGE_URL}]]></imageExpression>
+					</image>
+					<staticText>
+						<reportElement x="11" y="201" width="120" height="18" uuid="fa97c7c2-69fc-44bd-ae82-55781e9dca96"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<text><![CDATA[LEGENDA]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="12" y="371" width="120" height="18" uuid="d4e5bf94-168f-46b5-8236-0608f5dbec51"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<text><![CDATA[Keterangan :]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="13" y="401" width="120" height="18" uuid="b80990d4-4e52-42eb-bd79-35678efcc259"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<text><![CDATA[Isi keterangannya]]></text>
+					</staticText>
+					<componentElement>
+						<reportElement x="11" y="240" width="204" height="20" uuid="068726ad-5218-4bd7-aac3-696ec66e5969"/>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="DatasetLegend" uuid="d5fa5729-c7d2-4760-9f47-131f8fee5926">
+								<dataSourceExpression><![CDATA[$P{LEGEND}]]></dataSourceExpression>
+							</datasetRun>
+							<jr:listContents height="20" width="204">
+								<textField>
+									<reportElement x="0" y="0" width="200" height="20" uuid="72b29562-dc27-49ae-b690-663ea874dcfa"/>
+									<textFieldExpression><![CDATA[$F{_THIS}]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+				</frame>
+				<image scaleImage="FillFrame">
+					<reportElement x="11" y="11" width="560" height="437" uuid="9a435f88-260e-4d7f-90d0-bc54e05133a7"/>
+					<imageExpression><![CDATA[$P{IMAGE_URL}]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+</jasperReport>
