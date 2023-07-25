@@ -1,5 +1,7 @@
 package com.report.demo.rest;
 
+import java.io.IOException;
+
 import javax.ws.rs.core.HttpHeaders;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,7 @@ public class ReportRest {
 	private ReportService reportService;
 
 	@GetMapping("create-report")
-	public ResponseEntity<ByteArrayResource> createReport() throws JRException {
+	public ResponseEntity<ByteArrayResource> createReport() throws JRException, IOException {
 		VoReq request = new VoReq();
 		byte[] byteFile = reportService.createReport(request);
         ByteArrayResource resource = new ByteArrayResource(byteFile);

@@ -1,10 +1,13 @@
 package com.report.demo.service.impl;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
 import com.report.demo.dto.VoReq;
@@ -19,9 +22,12 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 @Service
 public class ReportServiceImpl implements ReportService {
+	
+	@Autowired
+	ResourceLoader resourceLoader;
 
 	@Override
-	public byte[] createReport(VoReq request) throws JRException {
+	public byte[] createReport(VoReq request) throws JRException, IOException {
 		Map<String, Object> m = new HashMap<String, Object>();
 		List<String> legends = new ArrayList<>();
 		legends.add("LEGEND 1");
@@ -34,10 +40,10 @@ public class ReportServiceImpl implements ReportService {
 		return file;
 	}
 
-	private byte[] generateJasperPdf(String jasperName, Map<String, Object> m) throws JRException {
+	private byte[] generateJasperPdf(String jasperName, Map<String, Object> m) throws JRException, IOException {
 		JasperPrint jasperPrint = null;
 		try {
-			jasperPrint = JasperFillManager.fillReport(getClass().getClassLoader().getResourceAsStream("/report/" + jasperName), m,new JREmptyDataSource());
+			jasperPrint = JasperFillManager.fillReport(resourceLoader.getResource("classpath:\\report\\" + jasperName).getInputStream(), m, new JREmptyDataSource());
 		} catch (JRException e) {
 			e.printStackTrace();
 		}
